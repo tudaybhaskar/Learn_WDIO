@@ -1,8 +1,8 @@
 import { browser } from "@wdio/globals";
 class LoginPage{
 
-    open(){
-        return browser.url('/');
+    async open(){
+        await browser.url('/');
     }
 
     get userName(){

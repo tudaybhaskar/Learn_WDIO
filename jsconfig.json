@@ -11,9 +11,6 @@
         "**/*.js",
         "**/*.json",
         "node_modules/expect-webdriverio"
-    ],
-    "exclude": [
-        "node_modules"
     ]
       
 }

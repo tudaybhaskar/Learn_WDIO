@@ -1,11 +1,11 @@
-import DashboardPage from "../pages/DashboardPage";
-import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage.js";
+import LoginPage from "../pages/LoginPage.js";
 
 describe('Dashboard ', () => {
-    before( async () => {
+    beforeEach( async () => {
         
         console.log('Before HOOK is executed');
-        await browser.url('/');
+        await LoginPage.open();
     })
 
     it('Login and Navigate to Dashboard', async () => {
@@ -13,9 +13,12 @@ describe('Dashboard ', () => {
         await expect(browser).toHaveTitle("OrangeHRM");
 
         (await LoginPage.userName).addValue('Admin');
-        (await LoginPage.password).addValue('Admin123');
+        (await LoginPage.password).addValue('admin123');
         (await LoginPage.loginButton).click();
 
-        await expect(DashboardPage.header_Dashboard).toHaveText('Dashboard');
+        const exp_Header = await DashboardPage.header_Dashboard;
+        await console.log("Expected value : " , exp_Header);
+
+        await expect(exp_Header).toEqual('Dashboard');
     });
 })

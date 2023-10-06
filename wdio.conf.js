@@ -50,6 +50,7 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+    directConnect:true,
     capabilities: [{
         browserName: 'chrome',
         maxInstances: 5,
@@ -166,6 +167,9 @@ export const config = {
      */
     // onPrepare: function (config, capabilities) {
     // },
+    onPrepare: async function(){
+        browser.maximizeWindow();
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.

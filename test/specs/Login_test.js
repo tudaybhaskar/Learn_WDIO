@@ -1,25 +1,25 @@
 //OrangeHRM
 //https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 import {browser, $, expect } from '@wdio/globals';
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '../pages/LoginPage.js';
 
 describe('Login Page', () => {
-    beforeEach( async() => {
+    beforeEach( async()=> {
         await LoginPage.open();
-    })
+    });
+
     it('Open URL & assert title', async() => {
         
         await expect(browser).toHaveTitle("OrangeHRM");
     });
 
     it('Validate Url Contains given', async() => {
-        //await browser.url('/');
+        
         
         await expect(browser).toHaveUrl("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     });
 
     it('Validate forgot password page', async() => {
-        //await browser.url('/');
 
         await $('.oxd-text.orangehrm-login-forgot-header').click();
         await expect(browser).toHaveUrlContaining('requestPasswordResetCode');
