@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "li.oxd-main-menu-item-wrapper a span"
+}
